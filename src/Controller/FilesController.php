@@ -65,10 +65,10 @@ class FilesController extends AppController
             $this->request->data['active'] = 'SI';
 
             $file = $this->Files->patchEntity($file, $this->request->data);
-            pr($file);
+            //pr($file);
             //exit;
             if($this->Files->save($file)){
-                if ( move_uploaded_file($document['tmp_name'], $this->request->data['location'] . $document['name']) ) {
+                if ( move_uploaded_file($document['tmp_name'], WWW_ROOT.'files/'.$this->request->data['location'] . $document['name']) ) {
                     $this->Flash->success(__('Guardado correctamente.'));
                     return $this->redirect('/affairs/index');
                 } // else {exit();}
