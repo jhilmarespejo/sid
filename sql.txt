@@ -1,0 +1,82 @@
+-- Adminer 4.2.5 MySQL dump
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `affairs`;
+CREATE TABLE `affairs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nna_id` int(11) NOT NULL,
+  `place` varchar(45) DEFAULT NULL,
+  `district` varchar(45) DEFAULT NULL,
+  `tipology` varchar(45) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `processType` varchar(45) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `affairDate` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_case_nna_idx` (`nna_id`),
+  CONSTRAINT `fk_case_nna` FOREIGN KEY (`nna_id`) REFERENCES `nna` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `files`;
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `affairs_id` int(11) NOT NULL,
+  `fileName` varchar(200) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `description` varchar(300) DEFAULT NULL,
+  `location` varchar(300) DEFAULT NULL,
+  `dateUpdate` varchar(100) DEFAULT NULL,
+  `dateModified` varchar(100) DEFAULT NULL,
+  `active` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_files_affairs1_idx` (`affairs_id`),
+  CONSTRAINT `fk_files_affairs1` FOREIGN KEY (`affairs_id`) REFERENCES `affairs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `nna`;
+CREATE TABLE `nna` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nnanames` varchar(45) DEFAULT NULL,
+  `nnasurenames` varchar(45) DEFAULT NULL,
+  `conventionalName` varchar(45) DEFAULT NULL,
+  `age` varchar(45) DEFAULT NULL,
+  `sex` varchar(45) NOT NULL,
+  `home` varchar(45) DEFAULT NULL,
+  `birthDate` date DEFAULT NULL,
+  `solePrint` varchar(45) DEFAULT NULL,
+  `imageOne` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+INSERT INTO `nna` (`id`, `nnanames`, `nnasurenames`, `conventionalName`, `age`, `sex`, `home`, `birthDate`, `solePrint`, `imageOne`) VALUES
+(12,	'FABRICIO MANUEL',	'FLORES MENDOZA',	'FABRI',	NULL,	'M',	'HOME FABRICIO',	'2016-08-21',	NULL,	NULL),
+(13,	'RONALD',	'CONDORI MITA',	'',	NULL,	'M',	'HOME',	'2014-08-21',	NULL,	NULL),
+(14,	'SHANEL',	'ESTRADA ROJAS',	'SHANEL',	NULL,	'F',	'HOME',	'2016-08-21',	NULL,	NULL),
+(15,	'',	'',	'FABIOLA RAMIREZ',	NULL,	'F',	'HOME',	'2015-08-21',	NULL,	NULL),
+(16,	'',	'',	'DANIEL',	NULL,	'M',	'HOME',	'2014-08-22',	NULL,	NULL),
+(17,	'ANAHI',	'ROMERO CASAS',	'',	NULL,	'F',	'HOME',	'2015-08-27',	NULL,	NULL),
+(18,	'RAFAEL',	'CORTEZ RICALDI',	'',	NULL,	'M',	'KLCNSAN AONDFOAS ADON AQOPDNDQO NQO QWOEN QON',	'2014-05-27',	NULL,	NULL),
+(19,	'',	'',	'BRUNO',	NULL,	'M',	'HOME',	'2014-09-29',	NULL,	NULL);
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `names` varchar(45) NOT NULL,
+  `surnames` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `active` tinyint(1) DEFAULT NULL,
+  `expirationAccount` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` (`id`, `names`, `surnames`, `username`, `password`, `active`, `expirationAccount`) VALUES
+(6,	'jhilmar',	'espejo flores',	'perla',	'$2y$10$JGSKxB/vPZtnHoN/IkxpIee3yshIVKcCOP26MdJnr1IG72gw0Ff7C',	1,	'2018-10-18');
+
+-- 2018-08-29 22:52:36
