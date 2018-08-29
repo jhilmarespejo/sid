@@ -13,6 +13,8 @@
     ?>
 <div class="text-center" ><?= $this->Form->button(__('Guardar'), ['class' => ' btn btn-primary btn-lg']) ?></div>
 <?= $this->Form->end() ?>
+
+
  -->
 <div class="board">
     <fieldset>
@@ -39,10 +41,10 @@
 
         <div class="form-group">
             <label>Descripción</label>
-            <?php echo $this->Form->input('description', ['label' => false, 'class'=>'form-control', 'type' => 'text'] );?>
+            <?php echo $this->Form->input('description', ['label' => false, 'class'=>'form-control', 'type' => 'text', 'multiple' => true] );?>
         </div>
 
-        <?php echo $this->Form->input('fileName', ['label' => 'archivo', 'class'=>'xcustom-file-input', 'type' => 'file', 'multiple' => true] );?>
+        <?php echo $this->Form->input('fileName', ['label' => 'archivo', 'class'=>'xcustom-file-input', 'type' => 'file', 'multiple' => false] );?>
     </fieldset>
     <div class="text-center" ><?= $this->Form->button(__('Guardar'), ['class' => ' btn btn-primary btn-lg']) ?></div>
     <?= $this->Form->end() ?>

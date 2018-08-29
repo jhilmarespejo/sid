@@ -40,7 +40,7 @@ class AffairsController extends AppController
         // $affair = $this->Affairs->get($id, [
         //     'contain' => ['Nna']
         // ]);
-        $affair = $this->Affairs->find()->contain( ['Files', 'Nna'] )->Where(['nna_id' => $id])->first();
+        $affair = $this->Affairs->find()->Where(['nna_id' => $id])->first();
 
         $this->set('affair', $affair);
     }
@@ -94,6 +94,7 @@ class AffairsController extends AppController
             $this->Flash->error(__('The affair could not be saved. Please, try again.'));
         }
         $nna = $this->Affairs->Nna->find()->Where(['id' => $id])->first();
+        // pr($nna); exit;
 
         $this->set(compact('affair', 'nna'));
 

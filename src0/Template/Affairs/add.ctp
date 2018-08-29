@@ -9,6 +9,8 @@
                 $fullName = $nna->nnasurenames.$nna->nnanames;
 
                 $folder = (!empty($fullName))? $nna->id.'-'.str_replace(' ', '-', $nna->nnasurenames).'/' : $nna->id.'-'.str_replace(' ', '-', $nna->conventionalName).'/'; 
+
+
             ?>
             <?php 
                 echo $this->Form->hidden('nna_id',['value' => $nna->id] ); 
@@ -29,12 +31,6 @@
             <div class="form-group">
                 <label>Distrito</label>
                 <?php echo $this->Form->control('district', ['label' => false, 'class'=>'form-control', 'type' => 'number', 'max' => '14', 'min' => '1']); ?>
-            </div>
-            
-
-            <div class="form-group">
-                <label>Fecha</label>
-                <?php echo $this->Form->control('affairDate', ['label' => false, 'class'=>'form-control', 'type' => 'date']); ?>
             </div>
             <div class="form-group">
                 <label>Tipología</label>

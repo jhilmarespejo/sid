@@ -36,7 +36,6 @@ class Affair extends Entity
         'description' => true,
         'processType' => true,
         'location' => true,
-        'affairDate' => true,
         'nna' => true
     ];
 }

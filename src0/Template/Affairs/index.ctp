@@ -38,7 +38,6 @@
                 <th>nna id</th>
                 <th>Lugar</th>
                 <th>Distrito</th>
-                <th>Fecha</th>
                 <th>Tipología</th>
                 <th>Descripción</th>
                 <th>Tipo de Proceso</th>
@@ -52,7 +51,6 @@
                 <td><?= $affair->has('nna') ? $this->Html->link($affair->nna->id, ['controller' => 'Nna', 'action' => 'view', $affair->nna->id]) : '' ?></td>
                 <td><?= h($affair->place) ?></td>
                 <td><?= h($affair->district) ?></td>
-                <td><?= h($affair->affairDate) ?></td>
                 <td><?= h($affair->tipology) ?></td>
                 <td><?= h($affair->description) ?></td>
                 <td><?= h($affair->processType) ?></td>

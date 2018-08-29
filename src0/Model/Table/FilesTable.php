@@ -83,13 +83,12 @@ class FilesTable extends Table
             ->notEmpty('location');
 
         $validator
-            ->scalar('dateUpdate')
+            ->date('dateUpdate')
             ->allowEmpty('dateUpdate');
 
         $validator
-            ->scalar('dateModified')
+            ->date('dateModified')
             ->allowEmpty('dateModified');
-
 
         $validator
             ->scalar('active')

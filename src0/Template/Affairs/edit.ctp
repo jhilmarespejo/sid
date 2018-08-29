@@ -30,7 +30,6 @@
             echo $this->Form->control('description');
             echo $this->Form->control('processType');
             echo $this->Form->control('location');
-            echo $this->Form->control('affairDate');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

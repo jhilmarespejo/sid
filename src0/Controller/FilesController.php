@@ -21,12 +21,11 @@ class FilesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Affairs']
+            'contain' => ['Nna']
         ];
         $files = $this->paginate($this->Files);
 
         $this->set(compact('files'));
-
     }
 
     /**
@@ -39,12 +38,10 @@ class FilesController extends AppController
     public function view($id = null)
     {
         $file = $this->Files->get($id, [
-            'contain' => ['Affairs']
+            'contain' => ['Nna']
         ]);
 
         $this->set('file', $file);
-
-        
     }
 
     /**
@@ -57,25 +54,27 @@ class FilesController extends AppController
         $file = $this->Files->newEntity();
         if ($this->request->is('post')) {
 
-
+            
             $document = $this->request->data['fileName'];
             $this->request->data['fileName'] =  $document['name'];
-            $this->request->data['dateUpdate'] =  date('Y-m-d H:i:s');
-            $this->request->data['dateModified'] = date('Y-m-d H:i:s');
-            $this->request->data['active'] = 'SI';
 
-            $file = $this->Files->patchEntity($file, $this->request->data);
-            pr($file);
+            pr( $document );
+            pr( $this->request->data() );
             //exit;
+            // CONTROLAR EL TAMA;O DEL DOCMENTO Y SU EXTENSION 
+            // GUARDAR LOS ARCHIVOS POR CASOS DIFERENTES
+            $file = $this->Files->patchEntity($file, $this->request->getData());
             if($this->Files->save($file)){
                 if ( move_uploaded_file($document['tmp_name'], $this->request->data['location'] . $document['name']) ) {
-                    $this->Flash->success(__('Guardado correctamente.'));
-                    return $this->redirect('/affairs/index');
-                } // else {exit();}
-            } else {
-                //debug($file->errors());
-                $this->Flash->error(__('El registro no se pudo guardar, intente nuevamente.'));
+                    $this->Flash->success(__('The file has been saved.'));
+                    //exit('ok');
+                    return $this->redirect(['controller' => 'files', 'action' => 'index']);
+                }
             }
+
+            debug($file->errors());
+
+            $this->Flash->error(__('El registro no se pudo guardar, intente nuevamente.'));
         }
 
         $nna = $this->Files->Affairs->Nna->find()->where(['id' => $id])->contain(['Affairs'])->first();

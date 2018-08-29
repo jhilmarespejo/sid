@@ -89,10 +89,6 @@ class AffairsTable extends Table
             ->maxLength('location', 200)
             ->allowEmpty('location');
 
-        $validator
-            ->date('affairDate')
-            ->allowEmpty('affairDate');
-
         return $validator;
     }
 
