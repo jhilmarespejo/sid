@@ -1,18 +1,4 @@
-
-<!-- <br/><br/><br/>
-<?= $this->Form->create($file, ['type' => 'file']) ?>
-    <?php
-        echo $this->Form->input('affairs_id', ['value' => $nna->affairs[0]->id, 'type' => 'text' ]);
-        echo $this->Form->control('fileName');
-        echo $this->Form->control('category');
-        echo $this->Form->control('description');
-        echo $this->Form->control('location');
-        echo $this->Form->control('dateUpdate', ['empty' => true]);
-        echo $this->Form->control('dateModified', ['empty' => true]);
-        echo $this->Form->control('active');
-    ?>
-<div class="text-center" ><?= $this->Form->button(__('Guardar'), ['class' => ' btn btn-primary btn-lg']) ?></div>
-<?= $this->Form->end() ?>
+nd() ?>
  -->
 <div class="board">
     <fieldset>
@@ -31,7 +17,7 @@
         <?php echo $this->Form->hidden('affairs_id', ['value' => $nna->affairs[0]->id ]);?>
         <?php echo $this->Form->hidden('location', ['value' => $nna->affairs[0]->location ]);?>
 
-        <?php $options = [[ 'text' => '', 'value' => '', 'selected', 'disabled'],[ 'text' => 'IMAGEN', 'value' => 'IMAGEN'],[ 'text' => 'DOCUMENTOS', 'value' => 'DOCUMENTOS']]; ?>
+        <?php $options = [[ 'text' => '', 'value' => '', 'selected', 'disabled'],[ 'text' => 'IMAGENES', 'value' => 'IMAGENES'],[ 'text' => 'DOCUMENTOS', 'value' => 'DOCUMENTOS']]; ?>
         <div class="form-group">
             <label>Categoría</label>
             <?php echo $this->Form->select('category', $options, ['label' => false, 'required', 'class'=>'form-control']); ?>
