@@ -31,7 +31,7 @@
     <table class="table table-responsive display dataTable cell-border table-hover" >
         <thead>
             <tr>
-                <th>id'</th>
+                <!-- <th>id</th> -->
                 <th>Apellidos</th>
                 <th>Nombres</th>
                 <th>Nombre Convencional</th>
@@ -45,7 +45,7 @@
         <tbody>
             <?php foreach ($nna as $nna): ?>
             <tr>
-                <td><?= $this->Number->format($nna->id) ?></td>
+                <!-- <td><?= $this->Number->format($nna->id) ?></td> -->
                 <td><?= h(strtoupper($nna->nnasurenames)) ?></td>
                 <td><?= h(strtoupper($nna->nnanames)) ?></td>
                 <td><?= h(strtoupper($nna->conventionalName)) ?></td>
@@ -54,10 +54,21 @@
                 <td><?= h($nna->home) ?></td>
                 <td><?= h( $nna->birthDate->format('Y-m-d') ); ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('CASO'), ['controller' => 'affairs','action' => 'send', $nna->id, 'affairs']) ?> 
+                    <!-- <?= $this->Html->link(__('CASO'), ['controller' => 'affairs','action' => 'send', $nna->id, 'affairs'], ['class' => 'btn btn-primary']) ?> --> 
                     <!-- <?= $this->Html->link(__('View'), ['action' => 'view', $nna->id]) ?> -->
-                    <?= $this->Html->link(__('ARCHIVOS'), ['controller' => 'files', 'action' => 'add', $nna->id, 'files']) ?>
+                    <!-- <?= $this->Html->link(__('AGREGAR ARCHIVOS'), ['controller' => 'files', 'action' => 'add', $nna->id, 'files'], ['class' => 'btn btn-primary sm']) ?> -->
                     <!-- <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $nna->id], ['confirm' => __('Are you sure you want to delete # {0}?', $nna->id)]) ?> -->
+
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" style="text-decoration: none; color: white">
+                      <label class="btn btn-secondary">
+                        <?= $this->Html->link(__('Caso'), ['controller' => 'affairs','action' => 'send', $nna->id, 'affairs'], ['class' => 'remove-line text-white']) ?> 
+                      </label>
+                      <label class="btn btn-secondary">
+                        <?= $this->Html->link(__('Agregar archivo'), ['controller' => 'files', 'action' => 'add', $nna->id, 'files'], ['class' => 'remove-line text-white']) ?>
+                      </label>
+                    </div>
+
                 </td>
             </tr>
             <?php endforeach; ?>

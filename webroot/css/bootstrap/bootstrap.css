@@ -9076,10 +9076,13 @@ ul.menu div.dropdown-menu{
   background: #1176b6;
   border: none;
 }
-@media (min-width: 200px) {
+@media (max-width: 990px) {
   div.menu nav div.navbar-collapse{
-    /*background: #016AAC;*/
+    background: rgba(1, 106, 172, 0.72);
     padding: 5%;
     border-radius: 0 0 27px 31px;
   }
+}
+.remove-line{
+  text-decoration: none;
 }

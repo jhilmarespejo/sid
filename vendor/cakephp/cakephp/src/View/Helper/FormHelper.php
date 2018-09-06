@@ -786,7 +786,7 @@ class FormHelper extends Helper
      * @link https://book.cakephp.org/3.0/en/views/helpers/form.html#displaying-and-checking-errors
      */
     public function error($field, $text = null, array $options = [])
-    {
+    { 
         if (substr($field, -5) === '._ids') {
             $field = substr($field, 0, -5);
         }
