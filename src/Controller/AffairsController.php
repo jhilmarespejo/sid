@@ -79,11 +79,10 @@ class AffairsController extends AppController
 
             $affair = $this->Affairs->patchEntity($affair, $this->request->getData());
             //pr($this->request->data()); exit;
-            $path = WWW_ROOT . 'files/'.$this->request->data['location'];
             if ($this->Affairs->save($affair)) {
 
-                if (!file_exists( $path )) {
-                    mkdir($path, 0775, true);
+                if (!file_exists(WWW_ROOT . 'files/'.$this->request->data['location'])) {
+                    mkdir(WWW_ROOT . 'files/'.$this->request->data['location'], 0775, true);
                 } else {exit;}
 
                 $this->Flash->success(__('The affair has been saved.'));
