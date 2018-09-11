@@ -89,7 +89,7 @@ class AffairsController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The affair could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro del caso no se pudo guardar, por favor intente otra vez.'));
         }
         $nna = $this->Affairs->Nna->find()->Where(['id' => $id])->first();
 
