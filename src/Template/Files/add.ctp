@@ -34,7 +34,7 @@
     <?= $this->Form->end() ?>
         <?php } else { ?>
             <div class="alert alert-warning alert-dismissible fade show slow text-center" role="alert" >
-              <strong>Error!</strong> Para agregar imagenes documentos primero debe agregar un CASO DE ANTENCION! <br/><br/><br/>
+              <strong>Error!</strong> Para agregar imagenes o documentos primero debe agregar un CASO DE ANTENCION! <br/><br/><br/>
               <?= $this->Html->link(__('AGREGAR CASO DE ANTENCION'), ['controller' => 'affairs','action' => 'send', $nna->id, 'affairs'], [ 'class' => 'btn btn-success btn-lg ', 'role' => 'button',]) ?> 
               
             </div>
