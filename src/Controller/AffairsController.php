@@ -77,7 +77,7 @@ class AffairsController extends AppController
             $this->request->data['place'] = strtoupper($this->request->data['place']);
             $this->request->data['description'] = strtoupper($this->request->data['description']);
 
-            $affair = $this->Affairs->patchEntity($affair, $this->request->getData());
+            $affair = $this->Affairs->patchEntity($affair, $this->request->data);
             //pr($this->request->data()); exit;
             if ($this->Affairs->save($affair)) {
 
@@ -87,7 +87,7 @@ class AffairsController extends AppController
 
                 $this->Flash->success(__('The affair has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Nna', 'action' => 'index']);
             }
             $this->Flash->error(__('El registro del caso no se pudo guardar, por favor intente otra vez.'));
         }
@@ -112,7 +112,7 @@ class AffairsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $this->request->data['place'] = strtoupper($this->request->data['place']);
             $this->request->data['description'] = strtoupper($this->request->data['description']);
-            $affair = $this->Affairs->patchEntity($affair, $this->request->getData());
+            $affair = $this->Affairs->patchEntity($affair, $this->request->data);
             if ($this->Affairs->save($affair)) {
                 $this->Flash->success(__('The affair has been saved.'));
 

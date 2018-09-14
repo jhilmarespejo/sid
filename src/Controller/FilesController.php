@@ -70,7 +70,7 @@ class FilesController extends AppController
             if($this->Files->save($file)){
                 if ( move_uploaded_file($document['tmp_name'], WWW_ROOT.'files/'.$this->request->data['location'] . $document['name']) ) {
                     $this->Flash->success(__('Guardado correctamente.'));
-                    return $this->redirect('/affairs/index');
+                    return $this->redirect(['controller' => 'Nna', 'action' => 'index']);
                 } // else {exit();}
             } else {
                 //debug($file->errors());
@@ -97,7 +97,7 @@ class FilesController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $file = $this->Files->patchEntity($file, $this->request->getData());
+            $file = $this->Files->patchEntity($file, $this->request->data);
             if ($this->Files->save($file)) {
                 $this->Flash->success(__('The file has been saved.'));
 

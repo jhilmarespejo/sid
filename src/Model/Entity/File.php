@@ -7,16 +7,16 @@ use Cake\ORM\Entity;
  * File Entity
  *
  * @property int $id
- * @property int $nna_id
+ * @property int $affairs_id
  * @property string $fileName
  * @property string $category
  * @property string $description
  * @property string $location
- * @property \Cake\I18n\FrozenDate $dateUpdate
- * @property \Cake\I18n\FrozenDate $dateModified
+ * @property string $dateUpdate
+ * @property string $dateModified
  * @property string $active
  *
- * @property \App\Model\Entity\Nna $nna
+ * @property \App\Model\Entity\Affair $affair
  */
 class File extends Entity
 {
@@ -31,13 +31,7 @@ class File extends Entity
      * @var array
      */
     protected $_accessible = [
-        'affairs_id' => true,
-        'fileName' => true,
-        'category' => true,
-        'description' => true,
-        'location' => true,
-        'dateUpdate' => true,
-        'dateModified' => true,
-        'active' => true,
+        '*' => true,
+        'id' => false
     ];
 }

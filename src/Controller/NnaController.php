@@ -56,7 +56,7 @@ class NnaController extends AppController
             $this->request->data['nnanames'] = strtoupper($this->request->data['nnanames']);
             $this->request->data['conventionalName'] = strtoupper($this->request->data['conventionalName']);
             $this->request->data['home'] = strtoupper($this->request->data['home']);
-            $nna = $this->Nna->patchEntity($nna, $this->request->getData());
+            $nna = $this->Nna->patchEntity($nna, $this->request->data);
            
             if ($this->Nna->save($nna)) {
                 $this->Flash->success(__('The nna has been saved.'));
@@ -85,8 +85,7 @@ class NnaController extends AppController
             $this->request->data['nnanames'] = strtoupper($this->request->data['nnanames']);
             $this->request->data['conventionalName'] = strtoupper($this->request->data['conventionalName']);
             $this->request->data['home'] = strtoupper($this->request->data['home']);
-            $nna = $this->Nna->patchEntity($nna, $this->request->getData());
-            $nna = $this->Nna->patchEntity($nna, $this->request->getData());
+            $nna = $this->Nna->patchEntity($nna, $this->request->data);
 
             if ($this->Nna->save($nna)) {
                 $this->Flash->success(__('The nna has been saved.'));

@@ -33,8 +33,8 @@
             
 
             <div class="form-group">
-                <label>Fecha</label>
-                <?php echo $this->Form->control('affairDate', ['label' => false, 'class'=>'form-control', 'type' => 'date']); ?>
+                <label>Fecha de registro del caso</label>
+                <?php echo $this->Form->input('affairDate', ['label' => false, 'class'=>'form-control', 'type' => 'date',]); ?>
             </div>
             <div class="form-group">
                 <label>Tipología</label>

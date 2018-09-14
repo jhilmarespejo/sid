@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th scope="row"><?= __('Fecha de registro del caso') ?></th>
-                <td><?= h($affair->affairDate) ?></td>
+                <td><?= h($affair->affairDate->format('Y-m-d')) ?></td> 
             </tr>
             <tr>
                 <th scope="row"><?= __('Tipología') ?></th>

@@ -8,15 +8,16 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $nnanames
+ * @property string $nnasurenames
  * @property string $conventionalName
  * @property string $age
  * @property string $sex
  * @property string $home
- * @property string $birthDate
+ * @property \Cake\I18n\Time $birthDate
  * @property string $solePrint
  * @property string $imageOne
  *
- * @property \App\Model\Entity\Case[] $cases
+ * @property \App\Model\Entity\Affair[] $affairs
  */
 class Nna extends Entity
 {
@@ -31,15 +32,7 @@ class Nna extends Entity
      * @var array
      */
     protected $_accessible = [
-        'nnanames' => true,
-        'nnasurenames' => true,
-        'conventionalName' => true,
-        'age' => true,
-        'sex' => true,
-        'home' => true,
-        'birthDate' => true,
-        'solePrint' => true,
-        'imageOne' => true,
-        'cases' => true
+        '*' => true,
+        'id' => false
     ];
 }

@@ -31,9 +31,9 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('users');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->table('users');
+        $this->displayField('id');
+        $this->primaryKey('id');
     }
 
     /**
@@ -42,33 +42,25 @@ class UsersTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
+   public function validationDefault(Validator $validator)
     {
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('names')
-            ->maxLength('names', 45)
             ->requirePresence('names', 'create')
             ->notEmpty('names');
 
         $validator
-            ->scalar('surnames')
-            ->maxLength('surnames', 45)
             ->requirePresence('surnames', 'create')
             ->notEmpty('surnames');
 
         $validator
-            ->scalar('username')
-            ->maxLength('username', 45)
             ->requirePresence('username', 'create')
             ->notEmpty('username');
 
         $validator
-            ->scalar('password')
-            ->maxLength('password', 45)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
 

@@ -33,9 +33,9 @@ class AffairsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('affairs');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->Table('affairs');
+        $this->displayField('id');
+        $this->primaryKey('id');
 
         $this->belongsTo('Nna', [
             'foreignKey' => 'nna_id',
@@ -53,40 +53,28 @@ class AffairsTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
+ public function validationDefault(Validator $validator)
     {
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('place')
-            ->maxLength('place', 45)
             ->allowEmpty('place');
 
         $validator
-            ->scalar('district')
-            ->maxLength('district', 45)
             ->allowEmpty('district');
 
         $validator
-            ->scalar('tipology')
-            ->maxLength('tipology', 45)
             ->allowEmpty('tipology');
 
         $validator
-            ->scalar('description')
-            ->maxLength('description', 45)
             ->allowEmpty('description');
 
         $validator
-            ->scalar('processType')
-            ->maxLength('processType', 45)
             ->allowEmpty('processType');
 
         $validator
-            ->scalar('location')
-            ->maxLength('location', 200)
             ->allowEmpty('location');
 
         $validator

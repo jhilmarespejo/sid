@@ -33,9 +33,9 @@ class NnaTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('nna');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->table('nna');
+        $this->displayField('id');
+        $this->primaryKey('id');
 
         // $this->hasMany('Cases', [
         //     'foreignKey' => 'nna_id'
@@ -51,41 +51,29 @@ class NnaTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
+     public function validationDefault(Validator $validator)
     {
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('nnanames')
-            ->maxLength('nnanames', 45)
             ->allowEmpty('nnanames');
 
-        // $validator
-        //     ->scalar('nnasurenames')
-        //     ->maxLength('nnanames', 45)
-        //     ->allowEmpty('nnanames');
+        $validator
+            ->allowEmpty('nnasurenames');
 
         $validator
-            ->scalar('conventionalName')
-            ->maxLength('conventionalName', 45)
             ->allowEmpty('conventionalName');
 
         $validator
-            ->scalar('age')
-            ->maxLength('age', 45)
             ->allowEmpty('age');
 
         $validator
-            ->scalar('sex')
-            ->maxLength('sex', 45)
             ->requirePresence('sex', 'create')
             ->notEmpty('sex');
 
         $validator
-            ->scalar('home')
-            ->maxLength('home', 45)
             ->allowEmpty('home');
 
         $validator
@@ -93,13 +81,9 @@ class NnaTable extends Table
             ->allowEmpty('birthDate');
 
         $validator
-            ->scalar('solePrint')
-            ->maxLength('solePrint', 45)
             ->allowEmpty('solePrint');
 
         $validator
-            ->scalar('imageOne')
-            ->maxLength('imageOne', 45)
             ->allowEmpty('imageOne');
 
         return $validator;

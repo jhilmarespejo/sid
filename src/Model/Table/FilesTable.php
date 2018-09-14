@@ -33,9 +33,9 @@ class FilesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('files');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->table('files');
+        $this->displayField('id');
+        $this->primaryKey('id');
 
         // $this->belongsTo('Nna', [
         //     'foreignKey' => 'nna_id',
@@ -59,41 +59,25 @@ class FilesTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        // $validator
-        //     ->scalar('fileName')
-        //     ->maxLength('fileName', 200)
-        //     ->requirePresence('fileName', 'create')
-        //     ->notEmpty('fileName');
+        $validator
+            ->allowEmpty('fileName');
 
         $validator
-            ->scalar('category')
-            ->maxLength('category', 45)
-            ->requirePresence('category', 'create')
-            ->notEmpty('category');
+            ->allowEmpty('category');
 
         $validator
-            ->scalar('description')
-            ->maxLength('description', 300)
             ->allowEmpty('description');
 
         $validator
-            ->scalar('location')
-            ->maxLength('location', 300)
-            ->requirePresence('location', 'create')
-            ->notEmpty('location');
+            ->allowEmpty('location');
 
         $validator
-            ->scalar('dateUpdate')
             ->allowEmpty('dateUpdate');
 
         $validator
-            ->scalar('dateModified')
             ->allowEmpty('dateModified');
 
-
         $validator
-            ->scalar('active')
-            ->maxLength('active', 45)
             ->allowEmpty('active');
 
         return $validator;

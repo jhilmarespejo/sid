@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property string $tipology
  * @property string $description
  * @property string $processType
+ * @property string $location
+ * @property \Cake\I18n\Time $affairDate
  *
  * @property \App\Model\Entity\Nna $nna
  */
@@ -29,14 +31,7 @@ class Affair extends Entity
      * @var array
      */
     protected $_accessible = [
-        'nna_id' => true,
-        'place' => true,
-        'district' => true,
-        'tipology' => true,
-        'description' => true,
-        'processType' => true,
-        'location' => true,
-        'affairDate' => true,
-        'nna' => true
+        '*' => true,
+        'id' => false
     ];
 }
