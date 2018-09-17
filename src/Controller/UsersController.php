@@ -69,11 +69,12 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('Creado correctamente.'));
 
                 return $this->redirect(['action' => 'index']);
+            } else {
+            $this->Flash->error(__('Los datos no se pudieron guardar, intente de nuevo.'));
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $this->set(compact('user'));
     }
@@ -97,7 +98,7 @@ class UsersController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Los datos no se pudieron guardar, intente de nuevo.'));
         }
         $this->set(compact('user'));
     }
