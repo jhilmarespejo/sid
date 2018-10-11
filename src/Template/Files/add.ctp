@@ -17,7 +17,7 @@
             <?php echo $this->Form->hidden('affairs_id', ['value' => $nna->affairs[0]->id ]);?>
             <?php echo $this->Form->hidden('location', ['value' => $nna->affairs[0]->location ]);?>
 
-            <?php $options = [[ 'text' => '', 'value' => '', 'selected', 'disabled'],[ 'text' => 'IMAGENES', 'value' => 'IMAGENES'],[ 'text' => 'DOCUMENTOS', 'value' => 'DOCUMENTOS']]; ?>
+            <?php $options = [[ 'text' => '', 'value' => '', 'selected', 'disabled'], [ 'text' => 'IMAGENES', 'value' => 'IMAGENES'], [ 'text' => 'DOCUMENTOS ÁREA SOCIAL', 'value' => 'DOCUMENTOS AREA SOCIAL'], [ 'text' => 'DOCUMENTOS ÁREA PSICOLÓGICA', 'value' => 'DOCUMENTOS AREA PSICOLOGICA'], [ 'text' => 'DOCUMENTOS ÁREA SALUD', 'value' => 'DOCUMENTOS AREA SALUD'], [ 'text' => 'DOCUMENTOS ÁREA LEGAL', 'value' => 'DOCUMENTOS AREA LEGAL']]; ?>
             <div class="form-group">
                 <label>Categoría</label>
                 <?php echo $this->Form->select('category', $options, ['label' => false, 'required', 'class'=>'form-control']); ?>

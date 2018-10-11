@@ -3943,8 +3943,8 @@ input[type="button"].btn-block {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #007bff;
+  color: #265780;
+  background-color: #DDE9DE;
 }
 
 .nav-fill .nav-item {
@@ -9085,4 +9085,9 @@ ul.menu div.dropdown-menu{
 }
 .remove-line{
   text-decoration: none;
+}
+
+.tab-content{
+  background-color: #DDE9DE;
+  padding: 3%; 
 }

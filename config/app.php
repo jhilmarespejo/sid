@@ -328,5 +328,6 @@ return [
      */
     'Session' => [
         'defaults' => 'php',
+        'timeout' => 800 // 13 hours in min
     ],
 ];
